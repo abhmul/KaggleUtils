@@ -22,7 +22,7 @@ def dump_args(func):
         logging.info(
             func.__name__ + ' (' +
             ', '.join(
-                '%s = %r' % p for p in params if p != "self"
+                '%s = %r' % p for p in params if p[0] != "self"
             ) + ' )'
         )
         return func(*func_args, **func_kwargs)
