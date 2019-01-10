@@ -9,6 +9,12 @@ def safe_open_dir(dirpath):
     return dirpath
 
 
+def safe_create_file(filepath):
+    dirpath = os.path.dirname(filepath)
+    dirpath = safe_open_dir(dirpath)
+    return filepath
+
+
 def get_model_path(run_id):
     return os.path.join(safe_open_dir("../models/"), str(run_id) + ".h5")
 
@@ -27,3 +33,11 @@ def get_cv_path(run_id):
 
 def get_prediction_path(run_id):
     return os.path.join(safe_open_dir("../predictions/"), str(run_id) + ".csv")
+
+
+def rchop(s, *ends):
+    for end in ends:
+        endlen = len(end)
+        if s[-endlen:] == end:
+            return s[:-endlen]
+    return s
