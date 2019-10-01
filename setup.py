@@ -22,5 +22,3 @@ setup(name='KaggleUtils',
           'Topic :: Software Development :: Libraries :: Python Modules'
       ],
       packages=find_packages())
-
-print("hello")
